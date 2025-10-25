@@ -3,14 +3,21 @@ import { useGlobalContext } from './context'
 
 const SetupForm = () => {
   const { quiz, handleChange, handleSubmit, error } = useGlobalContext()
+  
   return (
     <main>
       <section className='quiz quiz-small'>
         <form className='setup-form'>
-          <h2>quiz App</h2>
+          <h2>🎯 Quiz Challenge</h2>
+          <p style={{ textAlign: 'center', color: '#cbd5e1', marginBottom: '2rem' }}>
+            Customize your quiz experience and test your knowledge
+          </p>
+          
           {/* amount */}
           <div className='form-control'>
-            <label htmlFor='amount'>number of questions</label>
+            <label htmlFor='amount'>
+              📊 Number of Questions
+            </label>
             <input
               type='number'
               name='amount'
@@ -22,10 +29,12 @@ const SetupForm = () => {
               max={50}
             />
           </div>
+          
           {/* category */}
-
           <div className='form-control'>
-            <label htmlFor='category'>category</label>
+            <label htmlFor='category'>
+              📚 Category
+            </label>
             <select
               name='category'
               id='category'
@@ -33,15 +42,17 @@ const SetupForm = () => {
               value={quiz.category}
               onChange={handleChange}
             >
-              <option value='sports'>sports</option>
-              <option value='history'>history</option>
-              <option value='politics'>politics</option>
+              <option value='sports'>🏆 Sports</option>
+              <option value='history'>📜 History</option>
+              <option value='politics'>🏛️ Politics</option>
             </select>
           </div>
+          
           {/* difficulty */}
-
           <div className='form-control'>
-            <label htmlFor='difficulty'>select difficulty</label>
+            <label htmlFor='difficulty'>
+              ⚡ Difficulty Level
+            </label>
             <select
               name='difficulty'
               id='difficulty'
@@ -49,18 +60,20 @@ const SetupForm = () => {
               value={quiz.difficulty}
               onChange={handleChange}
             >
-              <option value='easy'>easy</option>
-              <option value='medium'>medium</option>
-              <option value='hard'>hard</option>
+              <option value='easy'>😊 Easy</option>
+              <option value='medium'>🤔 Medium</option>
+              <option value='hard'>😤 Hard</option>
             </select>
           </div>
+          
           {error && (
             <p className='error'>
-              can't generate questions, please try different options
+              ⚠️ Can't generate questions. Please try different options.
             </p>
           )}
+          
           <button type='submit' onClick={handleSubmit} className='submit-btn'>
-            start
+            🚀 Start Quiz
           </button>
         </form>
       </section>
